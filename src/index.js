@@ -18,7 +18,7 @@ root.render(
         <Routes>
           <Route path = "/" element = {<Home />}>
             <Route path = "autores" element = {<Autores/>}/>
-            <Route path = "biblioteca" elment = {<Biblioteca/>}/>
+            <Route path = "biblioteca" element = {<Biblioteca/>}/>
             <Route path = "book" element = {<BookList />}/>
             <Route path = "/book/:id" element = {<BookDetails />}/>
           </Route>
@@ -27,5 +27,3 @@ root.render(
     </FavoriteBooksProvider>
   </AppProvider>
 );
-
-

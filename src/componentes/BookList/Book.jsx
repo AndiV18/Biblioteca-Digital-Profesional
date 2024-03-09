@@ -44,7 +44,7 @@ const Book = (book) => {
         </div>
         <div className='book-item-info-item add-to-favorites'>
           <button onClick={handleToggleFavorite}>
-            {isBookFavorite(book.id) ? 'Remove from Favorites' : 'Add to Favorites'}
+            {isBookFavorite(book.id) ? 'Quitar de favoritos' : 'Añadir a favoritos'}
           </button>
         </div>
       </div>

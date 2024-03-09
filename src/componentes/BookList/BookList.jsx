@@ -4,11 +4,10 @@ import Book from "../BookList/Book";
 import Loading from "../Loader/Loader";
 import coverImg from "../../images/cover_not_found.jpg";
 import "./BookList.css";
-
-
+import Biblioteca from '../../pages/Biblioteca/Biblioteca'; // Importa el componente Biblioteca
 
 const BookList = () => {
-  const {books, loading, resultTitle} = useGlobalContext();
+  const { books, loading, resultTitle } = useGlobalContext();
   const booksWithCovers = books.map((singleBook) => {
     return {
       ...singleBook,
@@ -17,7 +16,7 @@ const BookList = () => {
     }
   });
 
-  if(loading) return <Loading />;
+  if (loading) return <Loading />;
 
   return (
     <section className='booklist'>
@@ -26,17 +25,16 @@ const BookList = () => {
           <h2>{resultTitle}</h2>
         </div>
         <div className='booklist-content grid'>
-          {
-            booksWithCovers.slice(0, 30).map((item, index) => {
-              return (
-                <Book key = {index} {...item} />
-              )
-            })
-          }
+          {booksWithCovers.slice(0, 30).map((item, index) => {
+            return (
+              <Book key={index} {...item} />
+            )
+          })}
         </div>
       </div>
+      <Biblioteca /> {/* Renderiza el componente Biblioteca */}
     </section>
   )
 }
 
-export default BookList
+export default BookList;
