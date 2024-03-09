@@ -24,6 +24,22 @@ export const FavoriteBooksProvider = ({ children }) => {
     localStorage.setItem('favoriteBooks', JSON.stringify(updatedFavoriteBooks));
   };
 
+  const addCommentToBook = (bookId, comment) => {
+    const updatedFavoriteBooks = favoriteBooks.map(book =>
+      book.id === bookId ? { ...book, comment } : book
+    );
+    setFavoriteBooks(updatedFavoriteBooks);
+    localStorage.setItem('favoriteBooks', JSON.stringify(updatedFavoriteBooks));
+  };
+
+  const removeCommentFromBook = (bookId) => {
+    const updatedFavoriteBooks = favoriteBooks.map(book =>
+      book.id === bookId ? { ...book, comment: "" } : book
+    );
+    setFavoriteBooks(updatedFavoriteBooks);
+    localStorage.setItem('favoriteBooks', JSON.stringify(updatedFavoriteBooks));
+  };
+
   const isBookFavorite = (bookId) => {
     return favoriteBooks.some(book => book.id === bookId);
   };
@@ -38,6 +54,8 @@ export const FavoriteBooksProvider = ({ children }) => {
         favoriteBooks,
         addFavoriteBook,
         removeFavoriteBook,
+        addCommentToBook,
+        removeCommentFromBook,
         isBookFavorite
       }}
     >
